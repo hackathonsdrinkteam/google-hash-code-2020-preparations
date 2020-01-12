@@ -19,7 +19,7 @@ namespace HashCode2020PreparationsApp.Application
         public async Task Calculate()
         {
            var statements = await _statementsProvider.GetStatements();
-            _logger.LogInformation("Statement loaded, it has {0} pizza types", statements["a_example.in"].PizzaTypes);
+           _logger.LogInformation("Statement loaded, it has {0} pizza types", statements["a_example.in"].PizzaTypes);
         }
     }
 }
