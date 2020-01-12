@@ -1,21 +1,21 @@
-﻿using HashCode2020PreparationsApp.Application;
-using HashCode2020PreparationsApp.Interfaces;
-using HashCode2020PreparationsApp.Models;
+﻿using HashCode.App.Application;
+using HashCode.App.Interfaces;
+using HashCode.App.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace HashCode2020PreparationsApp
+namespace HashCode.App
 {
     class Program
     {
         static async Task Main()
         {
             var serviceProvider = new ServiceCollection()
-                .AddLogging(options=> 
-                { 
+                .AddLogging(options =>
+                {
                     options.AddConsole();
-                    options.SetMinimumLevel(LogLevel.Debug); 
+                    options.SetMinimumLevel(LogLevel.Debug);
                 })
                 .AddSingleton<IStatementsProvider<ProblemStatement>, ExampleStatementsProvider>()
                 .AddSingleton<ISolution, Solution>()

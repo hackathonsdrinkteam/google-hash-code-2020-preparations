@@ -1,9 +1,9 @@
-﻿using HashCode2020PreparationsApp.Interfaces;
-using HashCode2020PreparationsApp.Models;
+﻿using HashCode.App.Interfaces;
+using HashCode.App.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace HashCode2020PreparationsApp.Application
+namespace HashCode.App.Application
 {
     public class ExampleStatementsProvider : IStatementsProvider<ProblemStatement>
     {

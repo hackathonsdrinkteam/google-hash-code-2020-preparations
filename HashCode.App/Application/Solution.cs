@@ -1,11 +1,11 @@
-﻿using HashCode2020PreparationsApp.Interfaces;
-using HashCode2020PreparationsApp.Models;
+﻿using HashCode.App.Interfaces;
+using HashCode.App.Models;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace HashCode2020PreparationsApp.Application
+namespace HashCode.App.Application
 {
-    public class Solution: ISolution
+    public class Solution : ISolution
     {
         private readonly IStatementsProvider<ProblemStatement> _statementsProvider;
         private readonly ILogger<Solution> _logger;
@@ -18,8 +18,8 @@ namespace HashCode2020PreparationsApp.Application
 
         public async Task Calculate()
         {
-           var statements = await _statementsProvider.GetStatements();
-           _logger.LogInformation("Statement loaded, it has {0} pizza types", statements["a_example.in"].PizzaTypes);
+            var statements = await _statementsProvider.GetStatements();
+            _logger.LogInformation("Statement loaded, it has {0} pizza types", statements["a_example.in"].PizzaTypes);
         }
     }
 }

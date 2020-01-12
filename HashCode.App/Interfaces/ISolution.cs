@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace HashCode2020PreparationsApp.Interfaces
+namespace HashCode.App.Interfaces
 {
     public interface ISolution
     {

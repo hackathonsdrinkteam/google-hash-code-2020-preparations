@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HashCode2020PreparationsApp.Models
+namespace HashCode.App.Models
 {
     public class ProblemStatement
     {
