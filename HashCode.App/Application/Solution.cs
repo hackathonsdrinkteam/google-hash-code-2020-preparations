@@ -7,19 +7,30 @@ namespace HashCode.App.Application
 {
     public class Solution : ISolution
     {
-        private readonly IStatementsProvider<ProblemStatement> _statementsProvider;
         private readonly ILogger<Solution> _logger;
+        private readonly IStatementsProvider<ProblemStatement> _statementsProvider;
+        private readonly IResolver<ProblemStatement, Result> _resolver;
+        private readonly IResultFileGenerator<Result> _resultFileGenerator;
 
-        public Solution(IStatementsProvider<ProblemStatement> statementsProvider, ILogger<Solution> logger)
+        public Solution(
+            ILogger<Solution> logger,
+            IStatementsProvider<ProblemStatement> statementsProvider,
+            IResolver<ProblemStatement, Result> resolver,
+            IResultFileGenerator<Result> resultFileGenerator
+            )
         {
-            _statementsProvider = statementsProvider;
             _logger = logger;
+            _statementsProvider = statementsProvider;
+            _resolver = resolver;
+            _resultFileGenerator = resultFileGenerator;
         }
 
-        public async Task Calculate()
+        public async Task Calculate(string fileToCalculate)
         {
             var statements = await _statementsProvider.GetStatements();
-            _logger.LogInformation("Statement loaded, it has {0} pizza types", statements["a_example.in"].PizzaTypes);
+            var result = await _resolver.Resolve(statements[fileToCalculate]);
+            await _resultFileGenerator.Generate(result);
+            _logger.LogInformation("Problem solved");
         }
     }
 }
