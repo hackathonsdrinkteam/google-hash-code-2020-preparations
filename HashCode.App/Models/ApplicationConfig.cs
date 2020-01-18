@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HashCode.App.Models
+﻿namespace HashCode.App.Models
 {
     public class ApplicationConfig
     {
