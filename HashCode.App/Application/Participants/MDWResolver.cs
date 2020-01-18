@@ -13,6 +13,7 @@ namespace HashCode.App.Application.Participants
         public override async Task<Result> Resolve(ProblemStatement input)
         {
             var stopWatch = Stopwatch.StartNew();
+            var smallestPizza = input.PizzaTypes.Select(type => type.Slices).Min();
             var maxSlices = input.MaximumNumberOfSlices;
             var pizzas = input.PizzaTypes;
             var currentSlices = 0;
@@ -30,6 +31,7 @@ namespace HashCode.App.Application.Participants
             }
             var result = await Task.FromResult(new Result(orderedPizzas));
             _logger.LogInformation("Resolved by MDW in {0}s", (float)stopWatch.ElapsedMilliseconds / 1000);
+            _logger.LogInformation("Rest is {0} slices when smallest item in set is {1}", maxSlices - currentSlices, smallestPizza);
             return result;
         }
     }
