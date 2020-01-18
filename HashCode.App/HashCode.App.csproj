@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Application\BaseResolver.cs~RF79cd638.TMP" />
-    <None Remove="Application\ResultFileGenerator.cs~RF7c1897c.TMP" />
-    <None Remove="appsettings.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
