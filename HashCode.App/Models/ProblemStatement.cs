@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace HashCode.App.Models
 {
@@ -8,10 +9,10 @@ namespace HashCode.App.Models
         {
             MaximumNumberOfSlices = maximumNumberOfSlices;
             PizzaTypesAmount = pizzaTypesAmount;
-            PizzaTypes = pizzaTypes;
+            PizzaTypes = pizzaTypes.Select((slices, index) => new PizzaType(index, slices)).ToList();
         }
         public int MaximumNumberOfSlices { get; private set; }
         public int PizzaTypesAmount { get; private set; }
-        public List<int> PizzaTypes { get; private set; }
+        public List<PizzaType> PizzaTypes { get; private set; }
     }
 }
