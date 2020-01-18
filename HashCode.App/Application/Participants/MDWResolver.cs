@@ -9,6 +9,7 @@ namespace HashCode.App.Application.Participants
         public MDWResolver(ILogger<BaseResolver> logger) : base(logger) { }
         public override Task<Result> Resolve(ProblemStatement input)
         {
+            _logger.LogInformation("MDW Resolver");
             return base.Resolve(input);
         }
     }

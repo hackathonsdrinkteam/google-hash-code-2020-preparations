@@ -15,10 +15,10 @@ namespace HashCode.App.Application
             _logger = logger;
         }
 
-        public async Task<Dictionary<string, ProblemStatement>> GetStatements()
+        public async Task<ProblemStatement> GetProblemStatement()
         {
-            var statements =  await Task.FromResult(new Dictionary<string, ProblemStatement> { { "a_example.in", new ProblemStatement(17, 4, new List<int> { 2, 5, 6, 8 }) } });
-            _logger.LogInformation("Files prepared");
+            var statements = await Task.FromResult(new ProblemStatement(17, 4, new List<int> { 2, 5, 6, 8 }));
+            _logger.LogInformation("Example File prepared");
             return statements;
         }
     }

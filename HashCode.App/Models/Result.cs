@@ -6,8 +6,8 @@ namespace HashCode.App.Models
     {
         public Result(List<int> resultItems)
         {
-            items = resultItems;
+            Items = resultItems;
         }
-        public List<int> items { get; private set; }
+        public List<int> Items { get; private set; }
     }
 }

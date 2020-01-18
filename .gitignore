@@ -349,3 +349,10 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /solution.zip
+
+
+# exclude everything
+Results/*
+
+# exception to the rule
+!Results/.gitkeep 

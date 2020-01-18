@@ -1,1 +1,1 @@
-compress-archive ./HashCode.App ./solution.zip -Force
+compress-archive ./HashCode.App ./Results/solution.zip -Force

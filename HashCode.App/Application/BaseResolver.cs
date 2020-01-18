@@ -2,6 +2,7 @@
 using HashCode.App.Models;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace HashCode.App.Application
@@ -16,8 +17,10 @@ namespace HashCode.App.Application
         }
         public virtual async Task<Result> Resolve(ProblemStatement input)
         {
-            _logger.LogInformation("resolved");
-            return await Task.FromResult(new Result(new List<int> { 0, 1, 2, 3 }));
+            var stopWatch = Stopwatch.StartNew();
+            var result = await Task.FromResult(new Result(new List<int> { 0, 2, 3 }));
+            _logger.LogInformation("Resolved in {0}s", (float)stopWatch.ElapsedMilliseconds / 1000);
+            return result;
         }
     }
 }

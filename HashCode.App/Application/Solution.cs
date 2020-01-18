@@ -25,10 +25,10 @@ namespace HashCode.App.Application
             _resultFileGenerator = resultFileGenerator;
         }
 
-        public async Task Calculate(string fileToCalculate)
+        public async Task Calculate()
         {
-            var statements = await _statementsProvider.GetStatements();
-            var result = await _resolver.Resolve(statements[fileToCalculate]);
+            var statement = await _statementsProvider.GetProblemStatement();
+            var result = await _resolver.Resolve(statement);
             await _resultFileGenerator.Generate(result);
             _logger.LogInformation("Problem solved");
         }
