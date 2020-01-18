@@ -20,8 +20,17 @@ namespace HashCode.App.Application.Participants
             var orderedPizzas = new List<int>();
             while (currentSlices< maxSlices)
             {
-                var pizzaToUse = pizzas.Where(pizza => pizza.Slices <= maxSlices - currentSlices).LastOrDefault();
-                if(pizzaToUse is null)
+                PizzaType pizzaToUse = null;
+                var possiblePizzas = pizzas.Where(pizza => pizza.Slices <= maxSlices - currentSlices).ToList();
+                pizzaToUse = possiblePizzas.LastOrDefault();
+                //if (possiblePizzas.Count >= 2)
+                //{
+                //    pizzaToUse = possiblePizzas[possiblePizzas.Count - 2];
+                //} else if (possiblePizzas.Count == 1)
+                //{
+                //    pizzaToUse = possiblePizzas.First();
+                //}
+                if (pizzaToUse is null)
                 {
                     break;
                 }

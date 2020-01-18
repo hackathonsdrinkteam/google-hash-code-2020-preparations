@@ -26,9 +26,8 @@ namespace HashCode.App.Application
             var resultFilePath = Path.Combine(_appConfig.ResultsPath, $"{_appConfig.FileToProcess.Split('.')[0]}{_appConfig.ResultFileSuffix}");
             dataString.AppendLine(result.Items.Count.ToString());
             dataString.AppendLine(string.Join(" ", result.Items));
-            using FileStream fs = File.OpenWrite(resultFilePath);
             byte[] info = new UTF8Encoding(true).GetBytes(dataString.ToString());
-            await fs.WriteAsync(info, 0, info.Length);
+            await File.WriteAllBytesAsync(resultFilePath,info);
             _logger.LogInformation("Result file generated in {0}, elapsed time: {1}s", resultFilePath, (float)stopWatch.ElapsedMilliseconds / 1000);
         }
     }
